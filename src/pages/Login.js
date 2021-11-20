@@ -10,7 +10,6 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      isDisabled: true,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,17 +20,16 @@ class Login extends Component {
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
-    this.verifyEmail();
   }
 
   verifyEmail() {
     const { email, password } = this.state;
-    const MIN_PASSWORD_LENGTH = 5;
+    const MIN_PASSWORD_LENGTH = 6;
     const emailValidation = /\S+@\S+\.\S+/; // Source: https://www.horadecodar.com.br/2020/09/13/como-validar-email-com-javascript/
     const isValidEmail = emailValidation.test(email);
     const isValidPassword = password.length >= MIN_PASSWORD_LENGTH;
     const allIsValid = isValidEmail && isValidPassword;
-    return this.setState({ isDisabled: !allIsValid });
+    return !allIsValid;
   }
 
   handleClick() {
@@ -43,14 +41,13 @@ class Login extends Component {
   }
 
   render() {
-    const { isDisabled } = this.state;
     return (
       <main>
         <label htmlFor="emailInput">
           Email
           <input
-            data-testid="email-input"
             type="email"
+            data-testid="email-input"
             onChange={ this.handleChange }
             id="emailInput"
             name="email"
@@ -69,7 +66,7 @@ class Login extends Component {
         </label>
         <button
           type="button"
-          disabled={ isDisabled }
+          disabled={ this.verifyEmail() }
           onClick={ this.handleClick }
         >
           Entrar
