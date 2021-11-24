@@ -14,7 +14,7 @@ export const REQUEST_DATA = () => ({ type: REQUEST_DATA });
 export function API_THUNK() {
   return (dispatch) => {
     dispatch(REQUEST_DATA());
-    return fetch('../tests/mockData.js')
+    return fetch('https://economia.awesomeapi.com.br/json/all')
       .then((response) => response.json())
       .then((currencies) => dispatch(THUNK_SUCCESS(currencies)));
   };

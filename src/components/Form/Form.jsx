@@ -48,7 +48,6 @@ class Form extends Component {
     const { walletSendExpenseDispatch } = this.props;
     const ID_SUM = id + 1;
     const exchangeRates = await this.getCurrencies();
-    console.log(exchangeRates);
     this.setState({ id: ID_SUM, exchangeRates });
     walletSendExpenseDispatch(this.state);
     this.setState({ value: 0 });
