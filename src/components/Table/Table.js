@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './Table.css';
 
 class Table extends Component {
   render() {
@@ -15,7 +16,7 @@ class Table extends Component {
           <th>Câmbio utilizado</th>
           <th>Valor convertido</th>
           <th>Moeda de conversão</th>
-          <th>Editar/Excluir</th>
+          <th>Valor da Moeda</th>
         </tr>
         {
           expenses.map((element, i) => {
@@ -38,13 +39,13 @@ class Table extends Component {
                   { exchangeRates[currency].name }
                 </td>
                 <td>
-                  { Number(exchangeRates[currency].ask).toFixed(2) }
-                </td>
-                <td>
                   { exchangeRates[currency].ask * value}
                 </td>
                 <td>
                   Real
+                </td>
+                <td>
+                  { Number(exchangeRates[currency].ask).toFixed(2) }
                 </td>
               </tr>);
           })

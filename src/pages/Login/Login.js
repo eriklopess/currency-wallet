@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { user } from '../actions/index';
+import { user } from '../../actions/index';
+import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -42,36 +43,38 @@ class Login extends Component {
 
   render() {
     return (
-      <main>
-        <label htmlFor="emailInput">
-          Email
-          <input
-            type="email"
-            data-testid="email-input"
-            onChange={ this.handleChange }
-            id="emailInput"
-            name="email"
-          />
-        </label>
-        <label htmlFor="passwordInput">
-          Password
-          <input
-            data-testid="password-input"
-            type="password"
-            minLength="6"
-            onChange={ this.handleChange }
-            id="emailInput"
-            name="password"
-          />
-        </label>
-        <button
-          type="button"
-          disabled={ this.verifyEmail() }
-          onClick={ this.handleClick }
-        >
-          Entrar
+      <main className="login-page">
+        <form className="login-form">
+          <label htmlFor="emailInput">
+            Email:
+            <input
+              type="email"
+              data-testid="email-input"
+              onChange={ this.handleChange }
+              id="emailInput"
+              name="email"
+            />
+          </label>
+          <label htmlFor="passwordInput">
+            Password:
+            <input
+              data-testid="password-input"
+              type="password"
+              minLength="6"
+              onChange={ this.handleChange }
+              id="emailInput"
+              name="password"
+            />
+          </label>
+          <button
+            type="button"
+            disabled={ this.verifyEmail() }
+            onClick={ this.handleClick }
+          >
+            Entrar
+          </button>
+        </form>
 
-        </button>
       </main>
     );
   }

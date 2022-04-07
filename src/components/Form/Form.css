@@ -1,0 +1,25 @@
+.info-form {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #404040;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.info-form input, select{
+  background: #252525;
+  border: none;
+  height: 30px;
+  padding: 5px;
+}
+
+.info-form button {
+  width: 150px;
+  height: 30px;
+  background-color: #252525;
+  border: 1px solid white;
+}

@@ -7,6 +7,7 @@ import CurrencySelect from './FormSelect/CurrencySelect';
 import MethodSelect from './FormSelect/MethodSelect';
 import DescriptionInput from './Inputs/DescriptionInput';
 import ValueInput from './Inputs/ValueInput';
+import './Form.css';
 
 class Form extends Component {
   constructor() {
@@ -59,7 +60,7 @@ class Form extends Component {
   render() {
     const { value } = this.state;
     return (
-      <form>
+      <form className="info-form">
         <ValueInput handleChange={ this.handleChange } value={ value } />
         <DescriptionInput handleChange={ this.handleChange } />
         <CurrencySelect handleChange={ this.handleChange } />
